@@ -7,9 +7,63 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
-	<p class="notice"><%= notice %></p>
-    <p class="alert"><%= alert %></p>
+<!-- 	<p class="notice"><%= notice %></p>
+    <p class="alert"><%= alert %></p> -->
+    <div id="home">
+    <div id="preloader">
+		<div id="status"></div>
+	</div>
+	<nav class="navbar-invert stuckMenu isStuck" role="navigation">
+	<div class="container">
+			<div class="navbar-header">
+				<button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse">
+					<span class="sr-only">Toggle navigation</span>
+					<span class="icon-bar"></span>
+					<span class="icon-bar"></span>
+					<span class="icon-bar"></span>
+				</button>
+				<a class="navbar-brand" href="#home">YallaNotlob</a>
+			</div>
+
+			<div class="collapse navbar-collapse navbar-right navbar-ex1-collapse">
+				<ul class="nav navbar-nav">
+					
+					<li class="menuItem"><a href="#whatis">What is?</a></li>
+					<li class="menuItem"><a href="#useit">Use It</a></li>
+					<li class="menuItem"><a href="#screen">Screenshot</a></li>
+					<li class="menuItem"><a href="#credits">Sign Up</a></li>
+					<li class="menuItem"><a href="#contact">Login</a></li>
+				</ul>
+			</div>
+		</div>
+	</nav>
+    <div class="container">
 <%= yield %>
 
+	</div>
+	<footer>
+      <div class="container">
+        <div class="row">
+          <div class="col-md-7">
+            <h3 class="footer-title">Team Members</h3>
+            <p>Mahmoud Wael | Wissa Azmy | Sherif Khalil| Mohammed EL-Agamy | Hany Adel
+            </p>
+			
+			<!-- LICENSE -->
+			Rails YallaNotlob
+		   	git repo: <a href='https://github.com/Wissa-Azmy/yallaNotlob'>Git here</a>
+	   		
+          </div> <!-- /col-xs-7 -->
+
+          <div class="col-md-5">
+            <div class="footer-banner">
+              <h3 class="footer-title">Rails YallNotlob</h3>
+  		   		git repo: <a href='https://github.com/Wissa-Azmy/yallaNotlob'>Git here</a>
+
+            </div>
+          </div>
+        </div>
+      </div>
+    </footer>
 </body>
 </html>
