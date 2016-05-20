@@ -22,6 +22,18 @@ ActiveRecord::Schema.define(version: 20160520091125) do
     t.datetime "updated_at",               null: false
   end
 
+  create_table "notifications", force: :cascade do |t|
+    t.integer  "from_id",     limit: 4
+    t.integer  "to_id",       limit: 4
+    t.integer  "order_id_id", limit: 4
+    t.datetime "created_at",            null: false
+    t.datetime "updated_at",            null: false
+  end
+
+  add_index "notifications", ["from_id"], name: "index_notifications_on_from_id", using: :btree
+  add_index "notifications", ["order_id_id"], name: "index_notifications_on_order_id_id", using: :btree
+  add_index "notifications", ["to_id"], name: "index_notifications_on_to_id", using: :btree
+
   create_table "users", force: :cascade do |t|
     t.string   "first_name",             limit: 255
     t.string   "last_name",              limit: 255
