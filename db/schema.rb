@@ -11,16 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160521151349) do
-
-  create_table "groups", force: :cascade do |t|
-    t.string   "name",       limit: 255
-    t.integer  "owner_id",   limit: 4
-    t.datetime "created_at",             null: false
-    t.datetime "updated_at",             null: false
-  end
-
-  add_index "groups", ["owner_id"], name: "index_groups_on_owner_id", using: :btree
+ActiveRecord::Schema.define(version: 20160520091125) do
 
   create_table "items", force: :cascade do |t|
     t.string   "name",       limit: 255
@@ -30,16 +21,6 @@ ActiveRecord::Schema.define(version: 20160521151349) do
     t.datetime "created_at",               null: false
     t.datetime "updated_at",               null: false
   end
-
-  create_table "memberships", force: :cascade do |t|
-    t.integer  "group_id",   limit: 4
-    t.integer  "user_id",    limit: 4
-    t.datetime "created_at",           null: false
-    t.datetime "updated_at",           null: false
-  end
-
-  add_index "memberships", ["group_id"], name: "index_memberships_on_group_id", using: :btree
-  add_index "memberships", ["user_id"], name: "index_memberships_on_user_id", using: :btree
 
   create_table "notifications", force: :cascade do |t|
     t.integer  "from_id",     limit: 4
@@ -74,6 +55,4 @@ ActiveRecord::Schema.define(version: 20160521151349) do
   add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree
   add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
 
-  add_foreign_key "memberships", "groups"
-  add_foreign_key "memberships", "users"
 end
