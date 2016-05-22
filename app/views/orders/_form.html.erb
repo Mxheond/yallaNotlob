@@ -13,7 +13,7 @@
 
   <div class="field">
     <%= f.label :order_for %><br>
-    <%= f.text_field :order_for %>
+    <%= f.select :order_for, options_for_select(Order.order_fors.map {|k, v| [k.humanize.capitalize, k]}) %>
   </div>
   <div class="field">
     <%= f.label :restaurant %><br>

@@ -11,8 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-<<<<<<< HEAD
-ActiveRecord::Schema.define(version: 20160522120902) do
+ActiveRecord::Schema.define(version: 20160522175101) do
 
   create_table "groups", force: :cascade do |t|
     t.string   "name",       limit: 255
@@ -20,9 +19,6 @@ ActiveRecord::Schema.define(version: 20160522120902) do
     t.datetime "created_at",             null: false
     t.datetime "updated_at",             null: false
   end
-=======
-ActiveRecord::Schema.define(version: 20160522175101) do
->>>>>>> 80c7e67a5ceaae628bee942dcfd171d157f5790e
 
   create_table "items", force: :cascade do |t|
     t.string   "name",       limit: 255
@@ -35,23 +31,14 @@ ActiveRecord::Schema.define(version: 20160522175101) do
     t.integer  "order_id",   limit: 4
   end
 
-<<<<<<< HEAD
+  add_index "items", ["order_id"], name: "index_items_on_order_id", using: :btree
+  add_index "items", ["user_id"], name: "index_items_on_user_id", using: :btree
+
   create_table "memberships", force: :cascade do |t|
     t.integer  "group_id",   limit: 4
     t.integer  "user_id",    limit: 4
     t.datetime "created_at",           null: false
     t.datetime "updated_at",           null: false
-=======
-  add_index "items", ["order_id"], name: "index_items_on_order_id", using: :btree
-  add_index "items", ["user_id"], name: "index_items_on_user_id", using: :btree
-
-  create_table "notifications", force: :cascade do |t|
-    t.integer  "from_id",     limit: 4
-    t.integer  "to_id",       limit: 4
-    t.integer  "order_id_id", limit: 4
-    t.datetime "created_at",            null: false
-    t.datetime "updated_at",            null: false
->>>>>>> 80c7e67a5ceaae628bee942dcfd171d157f5790e
   end
 
   add_index "memberships", ["group_id"], name: "index_memberships_on_group_id", using: :btree
@@ -86,11 +73,8 @@ ActiveRecord::Schema.define(version: 20160522175101) do
   add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree
   add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
 
-<<<<<<< HEAD
-  add_foreign_key "memberships", "groups"
-  add_foreign_key "memberships", "users"
-=======
   add_foreign_key "items", "orders"
   add_foreign_key "items", "users"
->>>>>>> 80c7e67a5ceaae628bee942dcfd171d157f5790e
+  add_foreign_key "memberships", "groups"
+  add_foreign_key "memberships", "users"
 end
