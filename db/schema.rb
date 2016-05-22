@@ -11,7 +11,14 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160520091125) do
+ActiveRecord::Schema.define(version: 20160522120902) do
+
+  create_table "groups", force: :cascade do |t|
+    t.string   "name",       limit: 255
+    t.integer  "owner_id",   limit: 4
+    t.datetime "created_at",             null: false
+    t.datetime "updated_at",             null: false
+  end
 
   create_table "items", force: :cascade do |t|
     t.string   "name",       limit: 255
@@ -22,17 +29,15 @@ ActiveRecord::Schema.define(version: 20160520091125) do
     t.datetime "updated_at",               null: false
   end
 
-  create_table "notifications", force: :cascade do |t|
-    t.integer  "from_id",     limit: 4
-    t.integer  "to_id",       limit: 4
-    t.integer  "order_id_id", limit: 4
-    t.datetime "created_at",            null: false
-    t.datetime "updated_at",            null: false
+  create_table "memberships", force: :cascade do |t|
+    t.integer  "group_id",   limit: 4
+    t.integer  "user_id",    limit: 4
+    t.datetime "created_at",           null: false
+    t.datetime "updated_at",           null: false
   end
 
-  add_index "notifications", ["from_id"], name: "index_notifications_on_from_id", using: :btree
-  add_index "notifications", ["order_id_id"], name: "index_notifications_on_order_id_id", using: :btree
-  add_index "notifications", ["to_id"], name: "index_notifications_on_to_id", using: :btree
+  add_index "memberships", ["group_id"], name: "index_memberships_on_group_id", using: :btree
+  add_index "memberships", ["user_id"], name: "index_memberships_on_user_id", using: :btree
 
   create_table "users", force: :cascade do |t|
     t.string   "first_name",             limit: 255
@@ -55,4 +60,6 @@ ActiveRecord::Schema.define(version: 20160520091125) do
   add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree
   add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
 
+  add_foreign_key "memberships", "groups"
+  add_foreign_key "memberships", "users"
 end

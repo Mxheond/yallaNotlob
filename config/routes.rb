@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :memberships
     root 'items#index'
 
 
@@ -8,6 +9,8 @@ Rails.application.routes.draw do
     get '/users/:id', :to => 'users#show', :as => :user
     
   resources :items
+  resources :groups
+    post '/groups/:id/join', :to => 'groups#join', :as => :join
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

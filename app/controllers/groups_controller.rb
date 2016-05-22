@@ -6,7 +6,8 @@ class GroupsController < ApplicationController
   # GET /groups.json
    def index
     @groups = Group.where('owner_id' => current_user.id)
-    respond_with(@groups)
+    @memberships = Membership.all
+    respond_with(@groups, @memberships)
   end
 
   # GET /groups/1
@@ -53,15 +54,14 @@ class GroupsController < ApplicationController
   end
 
   def join
-    @group = Group.find(params[:id])
-    @m = @group.memberships.build(:user_id => current_user.id)
+    @m = @user.memberships.build(:emil => params[:id])
     respond_to do |format|
       if @m.save
-        format.html { redirect_to(@group, :notice => 'You have joined this group.') }
+        format.html { redirect_to(@user, :notice => 'User has joined this user.') }
         format.xml  { head :ok }
       else
-        format.html { redirect_to(@group, :notice => 'Join error.') }
-        format.xml  { render :xml => @group.errors, :status => :unprocessable_entity }
+        format.html { redirect_to(@user, :notice => 'Join error.') }
+        format.xml  { render :xml => @user.errors, :status => :unprocessable_entity }
       end
     end
   end
