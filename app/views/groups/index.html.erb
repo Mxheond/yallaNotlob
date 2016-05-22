@@ -1,0 +1,15 @@
+<p id="notice"><%= notice %></p>
+
+<h3>Your Groups</h3>
+<div class="my-groups">
+  <ul>
+  <% @groups.each do |group| %>
+  <%= render group %>
+  <% end %>
+  </ul>
+</div>
+
+<div class="new-group-form"></div>
+<%= link_to "New group", new_group_path, remote: true, class: "new-group-button" %>
+
+
