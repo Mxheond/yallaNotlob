@@ -1,6 +1,13 @@
 Rails.application.routes.draw do
+  resources :memberships
+  resources :groups
+    root 'items#index'
+
+  resources :notifications
   devise_for :users
-  root 'items#index'
+    get '/users/all', :to => 'users#index', :as => :all_user
+    get '/users/:id', :to => 'users#show', :as => :user
+    
   resources :items
 devise_for :users, :controllers => { registrations: 'registrations' }
 

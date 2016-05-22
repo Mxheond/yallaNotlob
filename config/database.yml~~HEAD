@@ -16,7 +16,7 @@ default: &default
   username: root
   password: iti
   host: localhost
-
+  socket: /Applications/MAMP/tmp/mysql/mysql.sock
 
 development:
   <<: *default
