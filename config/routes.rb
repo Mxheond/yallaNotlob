@@ -1,5 +1,8 @@
 Rails.application.routes.draw do
+  
   resources :memberships
+  
+  resources :orders
     root 'items#index'
 
 

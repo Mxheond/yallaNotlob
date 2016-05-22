@@ -8,9 +8,10 @@
 
 <% @items.each do |item| %>
 <div class="item">
-<strong><%= item.name %></strong>
+<strong>Item: <%= item.name %></strong>
 <p>Amount: <%= item.amount %></p>
 <p>Price: <%= item.price %></p>
+<p>Added By: <%= item.user.user_name %></p>
 <div class="meta">
   <%= link_to time_ago_in_words(item.created_at) + " ago", item %>
   <span class="admin">
@@ -19,6 +20,7 @@
   </span>
 </div>
 </div>
+<br><hr><br>
 <% end %>
 
 <br><br>

@@ -29,10 +29,16 @@
 				<ul class="nav navbar-nav">
 					
 					<li class="menuItem"><a href="#whatis">What is?</a></li>
-					<li class="menuItem"><a href="#useit">Use It</a></li>
-					<li class="menuItem"><a href="/users/sign_out" data-method="delete" rel="nofollow">Logout</a></li>
-					<li class="menuItem"><a href="#credits">Sign Up</a></li>
-					<li class="menuItem"><a href="#contact">Login</a></li>
+					<li class="menuItem"><%= link_to "Orders", orders_path %></li>
+					
+					
+					<% if user_signed_in? %>
+						<li class="menuItem"><%= link_to current_user.user_name, "#" %></li>
+						<li class="menuItem"><%= link_to "Log Out", destroy_user_session_path, method: :delete %></li>
+					<% else %>
+						<li class="menuItem"><%= link_to "Sign Up", new_user_registration_path %></li>
+						<li class="menuItem"><%= link_to "Login", new_user_session_path %></li>
+					<% end %>
 				</ul>
 			</div>
 		</div>
