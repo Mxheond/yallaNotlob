@@ -1,0 +1,11 @@
+<li>
+  <%= div_for group do %>
+<div class="panel">
+<h3><%= group.name %></h3>
+<ul>
+  <li><%= link_to "Edit group", edit_group_path(group), remote: true %></li>
+  <li><%= link_to "Delete group", group, remote: true, method: :delete %></li>
+</ul>
+<% end %>
+</div>
+</li>
