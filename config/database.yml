@@ -17,7 +17,7 @@ default: &default
   password: iti
   host: localhost
 
-
+#Development Section 
 development:
   <<: *default
   database: rails
