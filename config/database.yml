@@ -50,6 +50,4 @@ test:
 #
 production:
   adapter:postgresql
-  database: yallaNotlob_production
-  username: yallaNotlob
   password: <%= ENV['YALLANOTLOB_DATABASE_PASSWORD'] %>
