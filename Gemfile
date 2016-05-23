@@ -50,7 +50,9 @@ group :development do
   gem "less-rails" #Sprockets (what Rails 3.1 uses for its asset pipeline) supports LESS
   gem "twitter-bootstrap-rails"
   gem "responders"
-  gem 'jquery-rails'
   
 end
 
+group :production do
+gem 'pg'
+end
