@@ -10,12 +10,11 @@
 #   http://dev.mysql.com/doc/refman/5.0/en/old-client.html
 #
 default: &default
-  adapter: postgresql
+  adapter: mysql2
   encoding: utf8
   pool: 5
-  username: ajpqbfhxaoqfct
-  password: ho59jEn-InzpP0if8_LAcAh0MB
-  port: 5432
+  username: root
+  password: iti
 
 development:
   <<: *default
@@ -49,7 +48,6 @@ test:
 #
 production:
    adapter:postgresql 
-  database:  d2lrp16m05ql5t
-  username: ajpqbfhxaoqfct
-  password: ho59jEn-InzpP0if8_LAcAh0MB
-  url: postgres://ajpqbfhxaoqfct:ho59jEn-InzpP0if8_LAcAh0MB@ec2-54-163-240-101.compute-1.amazonaws.com:5432/d2lrp16m05ql5t
+  database:d2lrp16m05ql5t
+  username:ajpqbfhxaoqfct
+  password:ho59jEn-InzpP0if8_LAcAh0MB
