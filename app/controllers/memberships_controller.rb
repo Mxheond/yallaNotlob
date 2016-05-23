@@ -15,7 +15,9 @@ class MembershipsController < ApplicationController
 
   def new
     @membership = Membership.new
-    respond_with(@membership)
+    @groups = Group.all
+    @users = User.all
+    respond_with(@membership, @groups, @user)
   end
 
   def edit
