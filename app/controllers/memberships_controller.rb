@@ -15,7 +15,7 @@ class MembershipsController < ApplicationController
 
   def new
     @membership = Membership.new
-    @groups = Group.all
+    @groups = Group.where('owner_id' => current_user.id)
     @users = User.all
     respond_with(@membership, @groups, @user)
   end
@@ -36,7 +36,8 @@ class MembershipsController < ApplicationController
 
   def destroy
     @membership.destroy
-    respond_with(@membership)
+    redirect_to "/groups"
+    # respond_with(@membership)
   end
 
   private

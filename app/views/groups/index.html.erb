@@ -1,5 +1,8 @@
 <p id="notice"><%= notice %></p>
 
+<div class="new-membership-form"></div>
+<%= link_to "Add User to group", new_membership_path, remote: true, class: "new-membership-button btn btn-warning" %>
+
 <h3>Your Groups</h3>
 <div class="my-groups">
   <ul>
@@ -18,10 +21,9 @@
 
   </ul>
 </div>
-
 <div class="new-group-form"></div>
 <%= link_to "New group", new_group_path, remote: true, class: "new-group-button btn btn-primary" %>
-<div class="new-membership-form"></div>
-<%= link_to "New membership", new_membership_path, remote: true, class: "new-membership-button btn btn-warning" %>
+
+
 
 
