@@ -1,11 +1,12 @@
-<li>
+
   <%= div_for group do %>
-<div class="well">
-<h3 class="well"><%= group.name %></h3>
-<ul>
-  <li><%= link_to "Edit group", edit_group_path(group), remote: true, class:"btn btn-primary" %></li>
-  <li><%= link_to "Delete group", group, remote: true, method: :delete, class:"btn btn-danger" %></li>
-</ul>
+<table class="well">
+<div class="panel">
+<h3><%= group.name %></h3>
+<tr>
+  <td><%= link_to "Edit group", edit_group_path(group), remote: true, class:"btn btn-primary" %></td>
+  <td><%= link_to "Delete group", group, remote: true, method: :delete, class:"btn btn-danger" %></td>
+</tr>
 <% end %>
-</div>
-</li>
+</div>	
+</table>
