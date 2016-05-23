@@ -50,4 +50,4 @@ test:
 #
 production:
   adapter:postgresql
-  password: <%= ENV['YALLANOTLOB_DATABASE_PASSWORD'] %>
+  #password: <%= ENV['YALLANOTLOB_DATABASE_PASSWORD'] %>
