@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
   
+  resources :friends
   resources :memberships
   
   resources :orders
@@ -10,10 +11,20 @@ Rails.application.routes.draw do
   devise_for :users
     get '/users/all', :to => 'users#index', :as => :all_user
     get '/users/:id', :to => 'users#show', :as => :user
+    get "/users/friend", :to => 'users#friend', :as => :sayed
+
+
     
   resources :items
   resources :groups
     post '/groups/:id/join', :to => 'groups#join', :as => :join
+
+  # resource :users do
+  #   get "/users/friend" :to => 'users#friend', :as => :user
+    # end
+  resources :friends do 
+      get "unfriend"
+    end
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
