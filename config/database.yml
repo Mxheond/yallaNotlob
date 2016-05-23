@@ -48,7 +48,7 @@ test:
 #     url: <%= ENV['DATABASE_URL'] %>
 #
 production:
-  adapter: postgresql
+  adapter: pg
   database:  d2lrp16m05ql5t
   username: ajpqbfhxaoqfct
   password: ho59jEn-InzpP0if8_LAcAh0MB
