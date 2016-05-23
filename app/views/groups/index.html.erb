@@ -1,10 +1,11 @@
 <p id="notice"><%= notice %></p>
 
-<h3>Your memberships</h3>
+<h3>Your Groups</h3>
 <div class="my-groups">
   <ul>
   <% @groups.each do |group| %>
   <%= render group %>
+  <div class="well">Users</div>
   <% @memberships.each do |member| %>
   <p id=<%= member.id%>>
    <% if group.id == member.group.id %>
@@ -19,8 +20,8 @@
 </div>
 
 <div class="new-group-form"></div>
-<%= link_to "New group", new_group_path, remote: true, class: "new-group-button" %>
+<%= link_to "New group", new_group_path, remote: true, class: "new-group-button btn btn-primary" %>
 <div class="new-membership-form"></div>
-<%= link_to "New membership", new_membership_path, remote: true, class: "new-membership-button" %>
+<%= link_to "New membership", new_membership_path, remote: true, class: "new-membership-button btn btn-warning" %>
 
 

@@ -217,7 +217,7 @@ body {
   background-color: #ffffff;
 }
 a {
-  color: #999999;
+  color: #34495e;
   text-decoration: none;
   -webkit-transition: 0.25s;
   transition: 0.25s;
@@ -1971,8 +1971,8 @@ fieldset[disabled] .input-group-btn .btn-default.active {
   line-height: 53px;
 }
 .navbar-toggle:before {
-/*   color: #34495e;
- */  content: "\e00c";
+  color: #34495e;
+  content: "\e00c";
   font-family: "Flat-UI-Icons";
   font-size: 22px;
   font-style: normal;
