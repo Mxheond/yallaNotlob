@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160523120756) do
+ActiveRecord::Schema.define(version: 20160523171717) do
 
   create_table "friends", force: :cascade do |t|
     t.integer  "user_id",    limit: 4
@@ -52,6 +52,17 @@ ActiveRecord::Schema.define(version: 20160523120756) do
 
   add_index "memberships", ["group_id"], name: "index_memberships_on_group_id", using: :btree
   add_index "memberships", ["user_id"], name: "index_memberships_on_user_id", using: :btree
+
+  create_table "notifications", force: :cascade do |t|
+    t.integer  "recipient_id",    limit: 4
+    t.integer  "actor_id",        limit: 4
+    t.datetime "read_at"
+    t.string   "action",          limit: 255
+    t.integer  "notifiable_id",   limit: 4
+    t.string   "notifiable_type", limit: 255
+    t.datetime "created_at",                  null: false
+    t.datetime "updated_at",                  null: false
+  end
 
   create_table "orders", force: :cascade do |t|
     t.string   "order_for",  limit: 255

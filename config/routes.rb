@@ -4,14 +4,13 @@ Rails.application.routes.draw do
   resources :memberships
   
   resources :orders
-    root 'items#index'
+    root 'orders#index'
 
 
   resources :notifications
   devise_for :users
-    get '/users/all', :to => 'users#index', :as => :all_user
+    get '/home', :to => 'users#index', :as => :all_user
     get '/users/:id', :to => 'users#show', :as => :user
-    get "/users/friend", :to => 'users#friend', :as => :sayed
 
 
     

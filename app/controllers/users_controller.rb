@@ -12,7 +12,7 @@ class UsersController < ApplicationController
       @friends.each do |friend| 
         @id = friend.friend_id
         @user_friends << User.find_by(id: @id)
-    end
+      end
       @orders = Order.last(4)
     else
       redirect_to new_user_session_url

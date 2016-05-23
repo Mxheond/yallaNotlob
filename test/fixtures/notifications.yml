@@ -1,11 +1,17 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
 one:
-  from_id: 
-  to_id: 
-  order_id_id: 
+  recipient_id: 1
+  actor_id: 1
+  read_at: 2016-05-23 19:17:17
+  action: MyString
+  notifiable_id: 1
+  notifiable_type: MyString
 
 two:
-  from_id: 
-  to_id: 
-  order_id_id: 
+  recipient_id: 1
+  actor_id: 1
+  read_at: 2016-05-23 19:17:17
+  action: MyString
+  notifiable_id: 1
+  notifiable_type: MyString
