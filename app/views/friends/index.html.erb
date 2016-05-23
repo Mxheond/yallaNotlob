@@ -1,0 +1,38 @@
+<%= link_to 'New Friend', new_friend_path %>
+<%= form_tag("/friends", method: "post") do %>
+  <p>
+  <div class="col-md-8">
+    <%= text_field_tag :friend, params[:friend],placeholder: "Add Friends by email" ,class: "form-control" %>
+    </div>
+    <%= submit_tag "add", :name => nil , class: 'btn btn-success'%>
+  </p>
+<% end %>
+
+
+<% if @friends.size != 0 %>
+<div class="col-md-6 col-md-offset-1">
+  
+<table class="table">
+<thead>
+    <tr>
+      <th><i>friend</i></th> 
+       <th><i>unfriend</i></th>      
+    </tr>
+  </thead>
+<% @friends.each do |friend| %>
+      <tr>
+      <% unfriend = User.where('id ='+friend.friend_id.to_s)%>
+      <% unfriend.each do |f| %>
+        <td><%= f.user_name %></td>
+        <td><b><%= link_to 'unfriend', friend, method: :delete, class:'btn btn-danger' %></b></td>
+        <% end %>
+      </tr>
+    <% end %>
+  <% else %> 
+  <b><%= "You don't Have friends" %></b>
+<% end %>
+
+</table>
+</div>
+<br/>
+
